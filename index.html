@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <title>Video Image Extractor</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="mainDiv">
+      <img src="media/extract.png">
+      <br><br>
+      <label for="videoInput" class="custom-file-upload">Select video(s)</label>
+      <input type="file" accept="video/*" multiple id="videoInput" class="videoInputter">
+      <br><br>
+      <label for="kpsInput">IPS Value(Image per second)</label>
+      <input type="number" id="kpsInput" min="1" max="2160">
+      <div>i.e. for 30FPS video, if you choose 6 IPS then video will be hopped by 5 seconds and you'll get 6 image per second.  </div>
+      
+      <br><br>
+      <label>Extracted Images Quality: </label>
+      <select id="qualitySelect">
+        <option value="20">1 - Very Low Quality</option>
+        <option value="40">2 - Low Quality</option>
+        <option value="60">3 - Normal Quality</option>
+        <option value="80">4 - High Quality</option>
+        <option value="100">5 - Very High Quality</option>
+      </select>
+      <br><br> 
+      <label>If you need storage on your pc, I recommend using lower quality images due to size of higher qualities.</label>
+      <ul id="videoList"></ul>
+      <br><br>
+      <div id="progress"></div>
+      <br><br>   
+      <button id = "processButton">Start!</button>
+      <script type="module" src="renderer.js"></script>
+    </div>
+    
+  </body>
+</html>
